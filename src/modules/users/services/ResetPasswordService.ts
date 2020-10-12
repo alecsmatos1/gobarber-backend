@@ -15,10 +15,10 @@ class ResetPasswordService {
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
 
-    @inject('IUsersTokensRepository')
+    @inject('UserTokensRepository')
     private userTokensRepository: IUserTokensRepository,
 
-    @inject('IHashProvider')
+    @inject('HashProvider')
     private hashProvider: IHashProvider,
   ) {}
 
@@ -27,7 +27,7 @@ class ResetPasswordService {
     if (!userToken) {
       throw new AppError('User token does not exists');
     }
-    const user = await this.usersRepository.findById(userToken?.user_id);
+    const user = await this.usersRepository.findById(userToken.user_id);
 
     if (!user) {
       throw new AppError('User does not exists');

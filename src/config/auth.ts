@@ -1,6 +1,6 @@
 export default {
   jwt: {
-    secret: '25c387a89e25a091ee57485ff4741071',
+    secret: process.env.APP_SECRET || 'default',
     expiresIn: '1d',
   },
 };
