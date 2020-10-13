@@ -34,6 +34,7 @@ class ListProviderMonthAvailabilityService {
       },
     );
     const numberOfDaysInMonth = getDaysInMonth(new Date(year, month - 1));
+    const currentDate = new Date(Date.now());
 
     const eachDayArray = Array.from(
       { length: numberOfDaysInMonth },
@@ -48,7 +49,7 @@ class ListProviderMonthAvailabilityService {
       return {
         day,
         available:
-          isAfter(compareDate, new Date()) && appointmentsInDay.length < 10,
+          isAfter(compareDate, currentDate) && appointmentsInDay.length < 10,
       };
     });
     return availability;

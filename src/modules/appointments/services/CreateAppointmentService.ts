@@ -36,7 +36,6 @@ class CreateAppointmentService {
       appointmentDate,
       provider_id,
     );
-
     if (findAppointmentInSameDate) {
       throw new AppError('This appointmente is already booked');
     }
